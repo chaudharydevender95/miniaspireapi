@@ -18,11 +18,13 @@ CREATE TABLE `user` (
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
+
 CREATE TABLE `roles` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
+
 CREATE TABLE `user_roles` (
   `user_id` bigint NOT NULL,
   `role_id` bigint NOT NULL,
@@ -31,6 +33,7 @@ CREATE TABLE `user_roles` (
   CONSTRAINT `FK55itppkw3i07do3h7qoclqd4k` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `FKh8ciramu9cc9q3qcqiv4ue8a6` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 )
+
 CREATE TABLE `loan` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `amount` decimal(38,2) DEFAULT NULL,
@@ -43,6 +46,7 @@ CREATE TABLE `loan` (
   KEY `FKxxm1yc1xty3qn1pthgj8ac4f` (`user_id`),
   CONSTRAINT `FKxxm1yc1xty3qn1pthgj8ac4f` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 )
+
 CREATE TABLE `repayment` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `amount` decimal(38,2) DEFAULT NULL,
@@ -53,6 +57,7 @@ CREATE TABLE `repayment` (
   KEY `FK1sqpnbq9niyr1k2etknq49hvt` (`loan_id`),
   CONSTRAINT `FK1sqpnbq9niyr1k2etknq49hvt` FOREIGN KEY (`loan_id`) REFERENCES `loan` (`id`)
 )
+
 
 
 
